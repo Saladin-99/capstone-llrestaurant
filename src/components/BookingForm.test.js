@@ -12,7 +12,8 @@ test('renders the booking form labels and submit button', () => {
   expect(screen.getByLabelText(/Time/i)).toBeInTheDocument();
   expect(screen.getByLabelText(/Number of guests/i)).toBeInTheDocument();
   expect(screen.getByLabelText(/Occasion/i)).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: /submit reservation/i })).toBeInTheDocument();
+  expect(screen.getByText(/Submit reservation/i)).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /on click/i })).toBeInTheDocument();
 });
 
 test('booking form inputs have correct HTML5 validation attributes', () => {
@@ -44,13 +45,13 @@ test('submit button is disabled when the form is invalid and enabled when valid'
 
   const { rerender } = render(<BookingForm availableTimes={invalidTimes} dispatch={dispatch} />);
 
-  const button = screen.getByRole('button', { name: /submit reservation/i });
+  const button = screen.getByRole('button', { name: /on click/i });
   expect(button).toBeDisabled();
 
   const validTimes = ['17:00'];
   rerender(<BookingForm availableTimes={validTimes} dispatch={dispatch} />);
 
-  const validButton = screen.getByRole('button', { name: /submit reservation/i });
+  const validButton = screen.getByRole('button', { name: /on click/i });
   await waitFor(() => expect(validButton).toBeEnabled());
 });
 
@@ -67,7 +68,7 @@ test('calls submitForm when the form is valid and submitted', async () => {
     />
   );
 
-  const button = screen.getByRole('button', { name: /submit reservation/i });
+  const button = screen.getByRole('button', { name: /on click/i });
   await waitFor(() => expect(button).toBeEnabled());
   userEvent.click(button);
 

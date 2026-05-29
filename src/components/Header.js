@@ -9,7 +9,11 @@ function Header() {
         <p className="eyebrow">Little Lemon</p>
         <h1>Chicago</h1>
         <p>We are a family-owned Mediterranean restaurant focused on traditional recipes served with a modern twist.</p>
-        <button className="button button--primary" onClick={() => navigate('/booking')}>
+        <button
+          className="button button--primary"
+          onClick={() => navigate('/booking')}
+          aria-label="On Click"
+        >
           Reserve a table
         </button>
       </div>
