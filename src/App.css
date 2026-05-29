@@ -79,3 +79,263 @@
 .site-footer p {
   margin: 0;
 }
+
+.main-content {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.homepage-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+  background: linear-gradient(180deg, #3f5d4e 0%, #526e57 100%);
+  color: #f5f4e6;
+  padding: 3rem;
+}
+
+.hero-section .eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f8d55e;
+}
+
+.hero-section h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.hero-section p {
+  margin: 0 0 1.5rem;
+  max-width: 52ch;
+  color: #eef3e4;
+}
+
+.hero-image-placeholder {
+  min-height: 280px;
+  border-radius: 28px;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.14), transparent 38%),
+    url("../public/manifest.json") no-repeat center/cover;
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.95rem 1.6rem;
+  font-weight: 700;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.button--primary {
+  background: #f9c92f;
+  color: #1f2d1d;
+  box-shadow: 0 14px 30px rgba(249, 201, 47, 0.22);
+}
+
+.button--secondary {
+  background: rgba(255, 255, 255, 0.92);
+  color: #2f3d2c;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.section-heading span {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: #6f7d6c;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  color: #192912;
+}
+
+.specials-section .specials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.special-card {
+  display: grid;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.93);
+  padding: 1.5rem;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(16, 37, 20, 0.08);
+}
+
+.special-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.special-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.special-card p {
+  margin: 0;
+  color: #4f624c;
+}
+
+.about-section {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(280px, 1fr) 1fr;
+  align-items: center;
+}
+
+.about-section img {
+  width: 100%;
+  border-radius: 28px;
+  min-height: 260px;
+}
+
+.testimonial-section .testimonial-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 16px 38px rgba(15, 34, 18, 0.08);
+}
+
+.testimonial-card img {
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+}
+
+.testimonial-stars {
+  color: #f9c92f;
+  margin-bottom: 0.75rem;
+}
+
+.testimonial-card p {
+  margin: 0 0 0.75rem;
+  color: #4f624c;
+}
+
+.testimonial-card strong {
+  display: block;
+  color: #15230f;
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-card small {
+  color: #6f7d6c;
+}
+
+.booking-page {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: minmax(280px, 1fr) 1fr;
+}
+
+.booking-copy span {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: #6f7d6c;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.booking-copy h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.booking-copy p {
+  margin: 0;
+  max-width: 48ch;
+  color: #4f624c;
+}
+
+.booking-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.booking-form label {
+  display: grid;
+  gap: 0.5rem;
+  color: #2f3d2c;
+  font-weight: 600;
+}
+
+.booking-form input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #192912;
+}
+
+.booking-form input:focus {
+  outline: 2px solid rgba(249, 201, 47, 0.35);
+}
+
+@media (max-width: 900px) {
+  .about-section,
+  .booking-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-section,
+  .page-section,
+  .site-nav,
+  .site-footer,
+  .main-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .site-nav .nav-links {
+    justify-content: center;
+  }
+}

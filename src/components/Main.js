@@ -1,8 +1,14 @@
+import { Routes, Route } from 'react-router-dom';
+import Homepage from './Homepage';
+import BookingPage from './BookingPage';
+
 function Main() {
   return (
-    <main className="page-section content-section">
-      <h2>Welcome to my homepage!</h2>
-      <p>Experience a calm and modern interface designed to feel warm, clean, and easy to read on any device.</p>
+    <main className="main-content">
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/booking" element={<BookingPage />} />
+      </Routes>
     </main>
   )
 }

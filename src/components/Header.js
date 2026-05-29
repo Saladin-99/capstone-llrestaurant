@@ -1,8 +1,13 @@
 function Header() {
   return (
     <header className="page-section hero-section">
-      <h1>Welcome to my homepage</h1>
-      <p>Find your table, explore the menu, and book a relaxing experience.</p>
+      <div>
+        <p className="eyebrow">Little Lemon</p>
+        <h1>Chicago</h1>
+        <p>We are a family-owned Mediterranean restaurant focused on traditional recipes served with a modern twist.</p>
+        <button className="button button--primary">Reserve a table</button>
+      </div>
+      <div className="hero-image-placeholder" />
     </header>
   )
 }
