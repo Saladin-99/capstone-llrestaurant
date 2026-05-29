@@ -295,7 +295,8 @@
   font-weight: 600;
 }
 
-.booking-form input {
+.booking-form input,
+.booking-form select {
   width: 100%;
   padding: 0.9rem 1rem;
   border: 1px solid var(--border);
@@ -304,8 +305,17 @@
   color: #192912;
 }
 
-.booking-form input:focus {
+.booking-form select {
+  appearance: none;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
   outline: 2px solid rgba(249, 201, 47, 0.35);
+}
+
+.booking-form button {
+  justify-self: start;
 }
 
 @media (max-width: 900px) {
