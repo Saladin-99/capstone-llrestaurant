@@ -1,10 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function BookingForm({ availableTimes, dispatch }) {
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('18:00');
+const todayString = new Date().toISOString().slice(0, 10);
+
+function BookingForm({ availableTimes = [], dispatch }) {
+  const [date, setDate] = useState(todayString);
+  const [time, setTime] = useState(availableTimes[0] || '18:00');
   const [guests, setGuests] = useState(2);
   const [occasion, setOccasion] = useState('Birthday');
+
+  useEffect(() => {
+    if (availableTimes.length > 0) {
+      setTime(availableTimes[0]);
+    }
+  }, [availableTimes]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
