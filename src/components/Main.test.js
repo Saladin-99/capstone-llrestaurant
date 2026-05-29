@@ -14,13 +14,14 @@ describe('bookingTimes with fetchAPI', () => {
     delete window.fetchAPI;
   });
 
-  test('initializeTimes returns mocked API slots', () => {
+  test('initializeTimes calls fetchAPI and returns mocked API slots', () => {
     expect(initializeTimes()).toEqual(['10:00', '11:30']);
+    expect(window.fetchAPI).toHaveBeenCalledWith(expect.any(Date));
   });
 
-  test('updateTimes returns unchanged state for unsupported action types', () => {
-    const currentTimes = ['10:00', '11:30'];
-    const newState = updateTimes(currentTimes, { type: 'NOOP' });
-    expect(newState).toBe(currentTimes);
+  test('updateTimes returns mocked API slots for a selected date', () => {
+    const newState = updateTimes([], { type: 'UPDATE_DATE', date: '2026-05-31' });
+    expect(newState).toEqual(['10:00', '11:30']);
+    expect(window.fetchAPI).toHaveBeenCalledWith(new Date('2026-05-31'));
   });
 });

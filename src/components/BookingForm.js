@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const todayString = new Date().toISOString().slice(0, 10);
 
-function BookingForm({ availableTimes = [], dispatch }) {
+function BookingForm({ availableTimes = [], dispatch, submitForm = () => {} }) {
+  const formRef = useRef(null);
   const [date, setDate] = useState(todayString);
-  const [time, setTime] = useState(availableTimes[0] || '18:00');
+  const [time, setTime] = useState(availableTimes[0] || '');
   const [guests, setGuests] = useState(2);
   const [occasion, setOccasion] = useState('Birthday');
+  const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     if (availableTimes.length > 0) {
@@ -14,19 +16,35 @@ function BookingForm({ availableTimes = [], dispatch }) {
     }
   }, [availableTimes]);
 
+  useEffect(() => {
+    setIsFormValid(formRef.current?.checkValidity() ?? false);
+  }, [date, time, guests, occasion, availableTimes]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    const formData = {
+      date,
+      time,
+      guests,
+      occasion,
+    };
+
+    if (submitForm(formData)) {
+      return;
+    }
+
     alert(`Reservation received for ${date} at ${time}, ${guests} guest(s), occasion: ${occasion}.`);
   };
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit}>
+    <form className="booking-form" onSubmit={handleSubmit} ref={formRef}>
       <label htmlFor="res-date">
         Date
         <input
           id="res-date"
           type="date"
           value={date}
+          min={todayString}
           onChange={(event) => {
             const selectedDate = event.target.value;
             setDate(selectedDate);
@@ -79,7 +97,7 @@ function BookingForm({ availableTimes = [], dispatch }) {
         </select>
       </label>
 
-      <button type="submit" className="button button--primary">
+      <button type="submit" className="button button--primary" disabled={!isFormValid}>
         Submit reservation
       </button>
     </form>
